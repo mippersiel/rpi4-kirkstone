@@ -10,6 +10,7 @@ bitbake-layers add-layer ../meta-openembedded/meta-python
 bitbake-layers add-layer ../meta-openembedded/meta-multimedia
 bitbake-layers add-layer ../meta-openembedded/meta-networking
 bitbake-layers add-layer ../meta-raspberrypi
+bitbake-layers add-layer ../meta-test
 
 # Append/override base configuration file for build
 cat <<-EOF >>"${SCRIPT_DIR}/build/conf/local.conf"
@@ -30,5 +31,5 @@ cat <<-EOF >>"${SCRIPT_DIR}/build/conf/local.conf"
 	EXTRA_IMAGE_FEATURES:append = " ssh-server-openssh"
 
 	# Extra recipes to image
-	CORE_IMAGE_EXTRA_INSTALL:append = " vim"
+	CORE_IMAGE_EXTRA_INSTALL:append = " vim bootgen"
 EOF
